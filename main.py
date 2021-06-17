@@ -10,6 +10,8 @@ UNSUPPORTED_EXTENSIONS = ['Icon', '.DS_Store', '.gshortcut', '.gsheet',
 
 logger.info("Using the following list as unsupported chars: {}".format(
     UNSUPPORTED_CHARACTERS))
+logger.info("Using the following list as unsupported extensions: {}".format(
+    UNSUPPORTED_EXTENSIONS))
 
 
 def onedrive_clean(fn):
@@ -21,7 +23,7 @@ def onedrive_clean(fn):
 
 
 def onedrive_safe(fn):
-    """ Returns false for file names that are not to copy """
+    """ Returns false for file names that unsafe for OneDrive """
     for s in UNSUPPORTED_EXTENSIONS:
         if s in fn:
             return False
